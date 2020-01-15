@@ -1,5 +1,5 @@
 {
-    "name": "classic-o/nova-media-library",
+    "name": "doitonlinemedia/nova-media-library",
     "description": "Tool and field that will let you managing files and add them to the posts",
     "keywords": ["laravel", "nova", "media", "gallery"],
     "license": "MIT",
