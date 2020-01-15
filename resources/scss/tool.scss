@@ -1,0 +1,100 @@
+@import "~cropperjs/dist/cropper.min.css";
+
+#nml-tool {
+  .flatpickr-input { width: 125px }
+  .card {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 40px 40px;
+    padding-bottom: 100%;
+    position: relative;
+    .checkbox {
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+    input.checkbox, .check {
+      background: transparent;
+      border: 5px solid var(--white);
+      border-radius: 4px;
+      box-shadow: none;
+      height: 100%;
+      width: 100%;
+      svg { display: none }
+    }
+    input.checkbox:checked,
+    input[type="checkbox"]:checked ~ .check { border-color: var(--primary) }
+    &:before, &:after {
+      background: rgba(#000, .5);
+      bottom: 5px;
+      content: '';
+      height: 15px;
+      left: 0;
+      line-height: 15px;
+      position: absolute;
+      width: 100%;
+    }
+    &:after {
+      background: transparent;
+      color: #fff;
+      content: attr(title);
+      left: 8px;
+      font-size: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: calc(100% - 16px);
+    }
+  }
+  .popup {
+    .bg-white {
+      max-width: 600px;
+      position: relative;
+      width: 90%;
+    }
+    .close {
+      font-size: 32px;
+      font-weight: 100;
+      height: 50px;
+      line-height: 1;
+      outline: none;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50px;
+      z-index: 2;
+    }
+  }
+  #cropper {
+    .bg-white { max-width: 1000px }
+    .cropper-point { background: #fff }
+    .cropper-view-box { outline: 1px dashed #fff }
+    .cropper-line { display: none }
+  }
+}
+
+body {
+  &.overflow-hidden #nova { overflow-y: scroll }
+  #nova {
+    .nml-icon-image { background-size: cover }
+    .nml-icon-file { background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cGF0aCBmaWxsPSIjNDM0ZDVkIiBkPSJNMjAuMTIgMTEuOTVsLTYuNTggNi41OWE1IDUgMCAxIDEtNy4wOC03LjA3bDYuNTktNi42YTMgMyAwIDAgMSA0LjI0IDQuMjVsLTYuNTggNi41OWExIDEgMCAxIDEtMS40Mi0xLjQybDYuNTktNi41OGExIDEgMCAwIDAtMS40Mi0xLjQybC02LjU4IDYuNTlhMyAzIDAgMCAwIDQuMjQgNC4yNGw2LjU5LTYuNThhNSA1IDAgMCAwLTcuMDgtNy4wOGwtNi41OCA2LjZhNyA3IDAgMCAwIDkuOSA5LjlsNi41OS02LjZhMSAxIDAgMCAwLTEuNDItMS40eiIvPjwvc3ZnPg0K") }
+    .nml-icon-audio { background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cGF0aCBmaWxsPSIjNDM0ZDVkIiBkPSJNOCAxNC41NFY2YTEgMSAwIDAgMSAuNzYtLjk3bDEyLTNBMSAxIDAgMCAxIDIyIDN2MTJhNCA0IDAgMSAxLTItMy40NlY0LjI4bC0xMCAyLjVWMThhNCA0IDAgMSAxLTItMy40NnpNNiAyMGEyIDIgMCAxIDAgMC00IDIgMiAwIDAgMCAwIDR6bTEyLTNhMiAyIDAgMSAwIDAtNCAyIDIgMCAwIDAgMCA0eiIvPjwvc3ZnPg0K") }
+    .nml-icon-video { background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjI0Ij48cGF0aCBmaWxsPSIjNDM0ZDVkIiBkPSJNMTYgOC4zOGw0LjU1LTIuMjdBMSAxIDAgMCAxIDIyIDd2MTBhMSAxIDAgMCAxLTEuNDUuOUwxNiAxNS42MVYxN2EyIDIgMCAwIDEtMiAySDRhMiAyIDAgMCAxLTItMlY3YzAtMS4xLjktMiAyLTJoMTBhMiAyIDAgMCAxIDIgMnYxLjM4em0wIDIuMjR2Mi43Nmw0IDJWOC42MmwtNCAyek0xNCAxN1Y3SDR2MTBoMTB6Ii8+PC9zdmc+DQo=") }
+    .nml-icon-folder { background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE4LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPCFET0NUWVBFIHN2ZyBQVUJMSUMgIi0vL1czQy8vRFREIFNWRyAxLjEvL0VOIiAiaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkIj4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4PSIwcHgiIHk9IjBweCINCgkgdmlld0JveD0iMCAwIDM3OCAzNzgiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDM3OCAzNzg7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIHN0eWxlPSJmaWxsOiNFMkUwRDA7IiBkPSJNMzU0LDIwLjgxNXY2MC4zN0gyNDhjLTkuOTQsMC0xOCw4LjA1LTE4LDE4YzAsOS45NC04LjA2LDE4LTE4LDE4SDY4Yy05Ljk0LDAtMTgsOC4wNS0xOCwxOHYxNzAuNzkNCglIMFYyMC44MTVIMzU0eiIvPg0KPHBhdGggc3R5bGU9ImZpbGw6I0I2Q0NFMDsiIGQ9Ik0zNzgsMTQ5LjE4NXYxOTBjMCw5Ljk0LTguMDYsMTgtMTgsMThINjhjLTkuOTQsMC0xOC04LjA2LTE4LTE4di0zMy4yMXYtMTcwLjc5DQoJYzAtOS45NSw4LjA2LTE4LDE4LTE4aDE0NGM5Ljk0LDAsMTgtOC4wNiwxOC0xOGMwLTkuOTUsOC4wNi0xOCwxOC0xOGgxMDZoNmM5Ljk0LDAsMTgsOC4wNSwxOCwxOHYxOFYxNDkuMTg1eiIvPg0KPHJlY3QgeD0iODYiIHk9IjE1Ny4xODUiIHN0eWxlPSJmaWxsOiM0RDRENEQ7IiB3aWR0aD0iMTEyIiBoZWlnaHQ9IjIwIi8+DQo8cmVjdCB4PSI4NiIgeT0iMTkxLjE4NSIgc3R5bGU9ImZpbGw6IzRENEQ0RDsiIHdpZHRoPSIxMTIiIGhlaWdodD0iMjAiLz4NCjxwYXRoIHN0eWxlPSJmaWxsOiM5RkJERDM7IiBkPSJNMzYwLDgxLjE4NWgtNmgtNTQuOTMzbC0xNjYuOTgsMjc2SDM2MGM5Ljk0LDAsMTgtOC4wNiwxOC0xOHYtMTkwdi0zMnYtMTgNCglDMzc4LDg5LjIzNSwzNjkuOTQsODEuMTg1LDM2MCw4MS4xODV6Ii8+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==") }
+  }
+}
+
+@media (min-width: 1280px) {
+  #nml-tool {
+    .item { width: 10% }
+  }
+}
+
+@media (max-width: 767px) {
+  #nml-tool {
+    .item { width: 25% }
+  }
+}
